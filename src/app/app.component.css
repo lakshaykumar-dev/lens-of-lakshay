@@ -33,3 +33,7 @@ footer {
 footer img {
     width: 20px;
 }
+img
+{
+  width: 70% !important;
+}
