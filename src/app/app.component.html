@@ -5,9 +5,15 @@
   </div>
   <div class="resource-list">
     <div class="gallery-container">
-      <h2>My Photography</h2>
-      <div class="gallery" *ngFor="let image of imageList">
-        <img [src]="image" alt="Photography" style="width: 700px;" />
+      <div class="row">
+        <div class="col-md-12">
+          <div class="gallery" *ngFor="let image of imageList">
+            <img [src]="image" loading="lazy" alt="Photography" />
+            <!-- <a [href]="image" download class="download-btn">
+              <button>Download</button>
+            </a> -->
+          </div>
+        </div>
       </div>
     </div>
   </div>
