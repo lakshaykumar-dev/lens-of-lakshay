@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 
 @Component({
@@ -8,43 +9,41 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'angular-quickstart';
   imageList: string[] = [];
+  private scriptLoaded = false;
+  constructor(private http: HttpClient) {}
   ngOnInit(): void {
-    // Add paths to the image array dynamically
-    const basePath = '/assets/lens_of_lakshay/';
-    const images = [
-      'IMG_20240126_152116.jpg',
-      'IMG_20220304_090751.jpg',
-      'IMG_20220304_162702.jpg',
-      'IMG_20240126_181327.jpg',
-      'IMG_20240126_201612.jpg',
-      'IMG_20240427_161608.jpg',
-      'IMG_20240505_142108.jpg',
-      'IMG_20240509_095343 (1).jpg',
-      'IMG_20240613_184203 (1).jpg',
-      'IMG_20240830_134800.jpg',
-      'IMG_20240927_211931.jpg',
-      'IMG_20241113_183854.jpg',
-      'IMG_20241120_164528.jpg',
-      'IMG_20241123_161354.jpg',
-      'IMG_20241126_134516.jpg',
-      'PXL_20220630_134237066.jpg',
-      'PXL_20220728_141005971.jpg',
-      'charbagh.jpg',
-      'IMG_20240120_131251.jpg',
-      // Add more image names here
-    ];
-
-    this.imageList = images.map(image => `${basePath}${image}`);
+    this.loadPostIds();
   }
-  ngAfterViewInit() {
-    this.loadInstagramScript();
+  loadPostIds(): void {
+    const basePath = 'https://www.instagram.com/p/';
+    this.http.get<{ postIds: string[] }>('/assets/post-ids.json').subscribe(data => {
+      this.imageList = data.postIds.map(id => `${basePath}${id}/`);
+      this.loadInstagramScript(); // Load script after posts are added
+    });
   }
 
-  loadInstagramScript() {
+  loadInstagramScript(): void {
+    if (this.scriptLoaded) {
+      this.processInstagramEmbeds();
+      return;
+    }
+
     const script = document.createElement('script');
     script.async = true;
     script.defer = true;
-    script.src = "https://www.instagram.com/embed.js";
+    script.src = 'https://www.instagram.com/embed.js';
+    script.onload = () => {
+      this.scriptLoaded = true;
+      this.processInstagramEmbeds();
+    };
     document.body.appendChild(script);
+  }
+
+  processInstagramEmbeds(): void {
+    setTimeout(() => {
+      if (typeof (window as any).instgrm !== 'undefined') {
+        (window as any).instgrm.Embeds.process();
+      }
+    }, 500); // Add a slight delay to ensure DOM stability
   }
 }

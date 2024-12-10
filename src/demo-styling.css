@@ -166,3 +166,6 @@ footer img {
   display: flex;
   justify-content: center;
 }
+.row{
+  margin-right: 0px !important;
+}

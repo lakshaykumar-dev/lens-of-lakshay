@@ -1,4 +1,84 @@
-<svg id="background" width='1728' height='1235' viewBox="0 0 1728 1235" fill='none' xmlns='http://www.w3.org/2000/svg'><g opacity='0.75' filter='url(#filter0_f_39_143)'><circle cy='1000' r='264' fill='url(#paint0_linear_39_143)'/></g><g opacity='0.65' filter='url(#filter1_f_39_143)'><circle cx='1720' cy='264' r='379' fill='url(#paint1_linear_39_143)'/></g><defs><filter id='filter0_f_39_143' x='-485' y='515' width='970' height='970' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'><feFlood flood-opacity='0' result='BackgroundImageFix'/><feBlend mode='normal' in='SourceGraphic' in2='BackgroundImageFix' result='shape'/><feGaussianBlur stdDeviation='110.5' result='effect1_foregroundBlur_39_143'/></filter><filter id='filter1_f_39_143' x='1120' y='-336' width='1200' height='1200' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'><feFlood flood-opacity='0' result='BackgroundImageFix'/><feBlend mode='normal' in='SourceGraphic' in2='BackgroundImageFix' result='shape'/><feGaussianBlur stdDeviation='110.5' result='effect1_foregroundBlur_39_143'/></filter><linearGradient id='paint0_linear_39_143' x1='196.5' y1='902' x2='-2.55853e-05' y2='1264' gradientUnits='userSpaceOnUse'><stop stop-color="var(--bttm-left-blur-1)"/><stop offset='1' stop-color="var(--bttm-left-blur-2)"/></linearGradient><linearGradient id='paint1_linear_39_143' x1='1720' y1='-115' x2='1720' y2='643' gradientUnits='userSpaceOnUse'><stop stop-color="var(--top-right-blur-1)"/><stop offset='1' stop-color="var(--top-right-blur-2)" /></linearGradient></defs></svg>
+<svg
+  id="background"
+  width="1728"
+  height="1235"
+  viewBox="0 0 1728 1235"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <g opacity="0.75" filter="url(#filter0_f_39_143)">
+    <circle cy="1000" r="264" fill="url(#paint0_linear_39_143)" />
+  </g>
+  <g opacity="0.65" filter="url(#filter1_f_39_143)">
+    <circle cx="1720" cy="264" r="379" fill="url(#paint1_linear_39_143)" />
+  </g>
+  <defs>
+    <filter
+      id="filter0_f_39_143"
+      x="-485"
+      y="515"
+      width="970"
+      height="970"
+      filterUnits="userSpaceOnUse"
+      color-interpolation-filters="sRGB"
+    >
+      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+      <feBlend
+        mode="normal"
+        in="SourceGraphic"
+        in2="BackgroundImageFix"
+        result="shape"
+      />
+      <feGaussianBlur
+        stdDeviation="110.5"
+        result="effect1_foregroundBlur_39_143"
+      />
+    </filter>
+    <filter
+      id="filter1_f_39_143"
+      x="1120"
+      y="-336"
+      width="1200"
+      height="1200"
+      filterUnits="userSpaceOnUse"
+      color-interpolation-filters="sRGB"
+    >
+      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+      <feBlend
+        mode="normal"
+        in="SourceGraphic"
+        in2="BackgroundImageFix"
+        result="shape"
+      />
+      <feGaussianBlur
+        stdDeviation="110.5"
+        result="effect1_foregroundBlur_39_143"
+      />
+    </filter>
+    <linearGradient
+      id="paint0_linear_39_143"
+      x1="196.5"
+      y1="902"
+      x2="-2.55853e-05"
+      y2="1264"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="var(--bttm-left-blur-1)" />
+      <stop offset="1" stop-color="var(--bttm-left-blur-2)" />
+    </linearGradient>
+    <linearGradient
+      id="paint1_linear_39_143"
+      x1="1720"
+      y1="-115"
+      x2="1720"
+      y2="643"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="var(--top-right-blur-1)" />
+      <stop offset="1" stop-color="var(--top-right-blur-2)" />
+    </linearGradient>
+  </defs>
+</svg>
 <div id="content">
   <div class="header">
     <h1>Lens Of Lakshay</h1>
@@ -7,13 +87,23 @@
     <div class="gallery-container">
       <div class="row">
         <div class="col-md-12">
-          <div class="instagram-container">
+          <div class="instagram-container" *ngFor="let post of imageList">
             <blockquote
               class="instagram-media"
-              data-instgrm-permalink="https://www.instagram.com/p/DDSdF5gzLP6/"
+              [attr.data-instgrm-permalink]="post"
               data-instgrm-version="14"
-              style="background: #FFF; border: none; border-radius: 3px; box-shadow: 0 0 1px rgba(0,0,0,0.5); margin: 1px; max-width: 540px; min-width: 326px; padding: 0; width: calc(100% - 2px);">
-            </blockquote>
+              style="
+                background: #fff;
+                border: none;
+                border-radius: 3px;
+                box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+                margin: 1px;
+                max-width: 540px;
+                min-width: 326px;
+                padding: 0;
+                width: calc(100% - 2px);
+              "
+            ></blockquote>
           </div>
         </div>
       </div>
