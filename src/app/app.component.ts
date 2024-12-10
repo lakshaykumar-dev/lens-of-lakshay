@@ -36,4 +36,15 @@ export class AppComponent {
 
     this.imageList = images.map(image => `${basePath}${image}`);
   }
+  ngAfterViewInit() {
+    this.loadInstagramScript();
+  }
+
+  loadInstagramScript() {
+    const script = document.createElement('script');
+    script.async = true;
+    script.defer = true;
+    script.src = "https://www.instagram.com/embed.js";
+    document.body.appendChild(script);
+  }
 }

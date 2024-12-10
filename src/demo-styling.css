@@ -162,3 +162,7 @@ footer img {
 .download-btn button:hover {
   background-color: #0056b3;
 }
+.instagram-container{
+  display: flex;
+  justify-content: center;
+}
