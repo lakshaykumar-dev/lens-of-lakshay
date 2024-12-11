@@ -4,7 +4,11 @@
   </div>
     <div class="gallery-container">
       <div class="row">
-          <div class="col-md-12" *ngFor="let post of imageList">
+          <div class="col-md-4" style="
+          display: flex;
+          justify-content: center;
+          "
+       *ngFor="let post of imageList">
             <blockquote
               class="instagram-media"
               [attr.data-instgrm-permalink]="post"

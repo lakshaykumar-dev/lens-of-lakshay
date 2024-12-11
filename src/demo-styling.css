@@ -168,7 +168,7 @@ footer img {
 }
 .row{
   margin-right: 0px !important;
-  display: contents !important;
+  margin-left: 0px !important;
 }
 .gallery-container{
   margin-top: 10px;
@@ -177,5 +177,5 @@ footer img {
 iframe {
   border-radius: 15px !important;
   border: 2px solid rgb(219, 219, 219) !important;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2) !important; /* Adds a subtle shadow */
 }
