@@ -168,4 +168,5 @@ footer img {
 }
 .row{
   margin-right: 0px !important;
+  display: contents !important;
 }
